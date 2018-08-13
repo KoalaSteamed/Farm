@@ -1121,7 +1121,7 @@ function tryClick(button) {
             if (button.hasClass("farm_icon_disabled") || button.html() == undefined) {
 
                 window.top.UI.ErrorMessage("That button is not selectable. Skipping row...", 500);
-                button.closest('tr').hide();
+                row.hide();
             }
             else {
                 button.click();
