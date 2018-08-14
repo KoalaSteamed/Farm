@@ -25,7 +25,7 @@ if (window.top.game_data.player.sitter != "0") {
 if (game_data.screen != 'am_farm') {
 	UI.InfoMessage('Going to Incoming overview ...', 3000, 'success');
 	document.location = game_data.link_base_pure + 'am_farm';
-};
+}
 
 var link = ["https://" + window.location.host + "/game.php?" + sitter + "village=", "&screen=am_farm"];
 
