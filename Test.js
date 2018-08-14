@@ -21,6 +21,12 @@ var sitter = "";
 if (window.top.game_data.player.sitter != "0") {
     sitter = "t=" + window.top.game_data.player.id + "&";
 }
+
+if (game_data.screen != 'am_farm') {
+	UI.InfoMessage('Going to Incoming overview ...', 3000, 'success');
+	document.location = game_data.link_base_pure + 'am_farm';
+};
+
 var link = ["https://" + window.location.host + "/game.php?" + sitter + "village=", "&screen=am_farm"];
 
 sendtoStats(1,"Enhancer");
@@ -1126,7 +1132,7 @@ function tryClick(button) {
             if (button.hasClass("farm_icon_disabled") || button.html() == undefined) {
 
                 window.top.UI.ErrorMessage("That button is not selectable. Skipping row...", 500);
-                button.closest("tr").hide();
+                button.closest('tr').hide();
             }
             else {
                 button.click();
