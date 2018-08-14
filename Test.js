@@ -184,38 +184,33 @@ function showAllRows() {
     }, 1);
 }
 function getPage(i, pages) {
-	if (i < pages) {
-		changeHeader(filter_41 + " " + (i + 1) + "/" + pages + " <img src='graphic/throbber.gif' height='24' width='24'></img>");
-		var url = link[0] + window.top.game_data.village.id + "&order=" + userset[s.order_by] + "&dir=" + userset[s.direction] + "&Farm_page=" + i + "&screen=am_farm";
-		window.top.$.ajax({
-			type: 'GET',
-			url: url,
-			dataType: "html",
-			error: function(xhr, statusText, error){
-				console.log("Get page failed with error: " + error);
-			},
-			success: function(data){
-				/*console.log(window.top.$(data));*/
-				window.top.$('#plunder_list tr', data).slice(1).each(function() {
-					window.top.$('#plunder_list tr:last').after("<tr>" + window.top.$(this).html() + "</tr>");
-				});
-				setTimeout(function(){
-					getPage(i + 1, pages);
-				}, 1);
-			}
-		});
-	} else {
-		setTimeout(function() {
-			addTableInfo();
-			applyFilters();
-			changeHeader(filter_40);
-			highlightRows();
-		}, 1);
-		window.top.$('#plunder_list').show();
-		window.top.Accountmanager.initTooltips();
-		pagesLoaded = true;
-		cansend = true;
-	}
+    if (i < pages) {
+        changeHeader(filter_41 + " " + (i + 1) + "/" + pages + " <img src='graphic/throbber.gif' height='24' width='24'></img>");
+        var url = link[0] + window.top.game_data.village.id + "&order=" + userset[s.order_by] + "&dir=" + userset[s.direction] + "&Farm_page=" + i + "&screen=am_farm";
+        window.top.$.ajax({
+            type: 'GET', url: url, dataType: "html", error: function (xhr, statusText, error) {
+                console.log("Get page failed with error: " + error);
+            }, success: function (data) {
+                window.top.$('#plunder_list tr', data).slice(2).each(function () {
+                    window.top.$('#plunder_list tr:last').after("<tr>" + window.top.$(this).html() + "</tr>");
+                });
+                setTimeout(function () {
+                    getPage(i + 1, pages);
+                }, 1);
+            }
+        });
+    } else {
+        setTimeout(function () {
+            addTableInfo();
+            applyFilters();
+            changeHeader(filter_40);
+            highlightRows();
+        }, 1);
+        window.top.$('#plunder_list').show();
+        window.top.Accountmanager.initTooltips();
+        pagesLoaded = true;
+        cansend = true;
+    }
 }
 function changeHeader(string) {
     window.top.$("h3:first").html(string);
