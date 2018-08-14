@@ -22,6 +22,7 @@ if (window.top.game_data.player.sitter != "0") {
     sitter = "t=" + window.top.game_data.player.id + "&";
 }
 
+
 if (game_data.screen != 'am_farm') {
 	UI.InfoMessage('Going to Incoming overview ...', 3000, 'success');
 	document.location = game_data.link_base_pure + 'am_farm';
