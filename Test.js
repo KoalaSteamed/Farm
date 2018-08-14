@@ -22,11 +22,6 @@ if (window.top.game_data.player.sitter != "0") {
     sitter = "t=" + window.top.game_data.player.id + "&";
 }
 
-if (game_data.screen != 'am_farm') {
-	UI.InfoMessage('Going to Incoming overview ...', 3000, 'success');
-	document.location = game_data.link_base_pure + 'am_farm';
-}
-
 var link = ["https://" + window.location.host + "/game.php?" + sitter + "village=", "&screen=am_farm"];
 
 sendtoStats(1,"Enhancer");
@@ -1372,7 +1367,7 @@ function getFA() {
     fadeThanksToCheese();
     openLoader();
     var vlink = link[0] + window.top.game_data.village.id + link[1];
-    window.top.$.getScript("https://" + window.top.location.host + "/js/game/Accountmanager.js", function () {
+    window.top.$.getScript("https://" + window.top.location.host + "/game.php?screen=am_farm", function () {
         window.top.$.ajax({
             type: "GET", url: vlink, dataType: "html", error: function (xhr, statusText, error) {
                 alert("Get LA error: " + error);
