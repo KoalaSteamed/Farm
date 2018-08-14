@@ -1362,7 +1362,10 @@ function checkPage() {
         run();
     }
 }
-function getFA() {
+function getFA(){fadeThanksToCheese();openLoader();var vlink=link[0]+window.top.game_data.village.id+link[1];var AccountManagerLocation=window.top.$.jStorage.get("AccountManagerLocation");var sAMJSLoc=JSON.parse(AccountManagerLocation)['loc'];window.top.$.getScript(sAMJSLoc,function(){window.top.$.ajax({type:"GET",url:vlink,dataType:"html",error:function(xhr,statusText,error){alert("Get LA error: "+error);window.top.$('#fader').remove();window.top.$('#loaders').remove();},success:function(data){var v=window.top.$(data);var titlePat=/<\s*title\s*>([^<]+)<\/title\s*>/g;var titleMatch=titlePat.exec(data);var title=titleMatch[1];var newGameData=window.top.$.parseJSON(data.split("TribalWars.updateGameData(")[1].split(");")[0]);window.top.game_data=newGameData;if(typeof history!=='undefined'&&typeof history.pushState==='function'){history.pushState({},window.top.game_data.village.name+" - Loot Assistant","https://"+window.top.location.host+game_data.link_base_pure+'am_farm');}
+window.top.$('#header_info').html(window.top.$('#header_info',v).html());window.top.$('#topContainer').html(window.top.$('#topContainer',v).html());window.top.$('#contentContainer').html(window.top.$('#contentContainer',v).html());window.top.$('head').find('title').html(title);window.top.$('#fader').remove();window.top.$('#loaders').remove();run();}});});}
+
+/*function getFA() {
     console.log("getFA");
     fadeThanksToCheese();
     openLoader();
@@ -1394,7 +1397,7 @@ function getFA() {
             }
         });
     });
-}
+}*/
 function fadeThanksToCheese() {
     var fader = window.top.document.createElement('div');
     fader.id = 'fader';
