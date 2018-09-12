@@ -1,5 +1,5 @@
-var version = "1.13.1 Fixed By Ibra";
-var scriptName = "LA Enhancer (1.13.1) - Fixed by Ibra Gonza II";
+var version = "1.13.2 Fixed By Koala";
+var scriptName = "LA Enhancer (1.13.2) - Fixed by Koala_Steamed";
 var scriptURL = "https://scripts.ibragonza.nl/enhancer/";
 var updateNotesURL = "https://forum.tribalwars.net/index.php?threads/ntoombs19s-fa-filter.266604/page-15#post-7053294";
 var working = true;
