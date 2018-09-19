@@ -25,7 +25,7 @@
             .filter((i, el) => $(el).attr('name'))
             .each((i, el) => {
                 var wallLevel = $($(el).find('td')[7]).text();
-                if (wallLevel == 2) {
+                if (wallLevel != 2) {
                     return;
                 }
 
