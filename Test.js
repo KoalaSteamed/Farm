@@ -20,6 +20,7 @@ var currentGameTime = getCurrentGameTime();
 var sitter = "";
 if (window.top.game_data.player.sitter != "0") {
     sitter = "t=" + window.top.game_data.player.id + "&";
+if(game_data.screen!='am_farm')$(location).attr('href',game_data.link_base_pure+'am_farm');
 }
 
 var link = ["https://" + window.location.host + "/game.php?" + sitter + "village=", "&screen=am_farm"];
